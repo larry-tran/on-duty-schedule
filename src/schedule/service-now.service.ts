@@ -24,13 +24,15 @@ export class ServiceNowService {
     };
   }
 
-  // Get the current headers
   getHeaders(): ServiceNowHeaders {
     return this.headers;
   }
 
-  // Update any header value
   updateHeader(key: keyof ServiceNowHeaders, value: string): void {
     this.headers[key] = value;
+  }
+
+  updateHeaders(updatedHeaders: Partial<ServiceNowHeaders>): void {
+    this.headers = { ...this.headers, ...updatedHeaders };
   }
 }
